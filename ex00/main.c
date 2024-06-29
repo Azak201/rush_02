@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 int printstr(int num);
-int ft_atoi(char *str);
+int ft_matoi(char *str);
 
 
 int main(int a, char **v)
@@ -16,7 +16,7 @@ int main(int a, char **v)
     }
     else if (a == 2)
     {
-        num = ft_atoi(v[1]);
+        num = ft_matoi(v[1]);
         if (num < 0)
         {
             write(1, "Error\n", 6);
