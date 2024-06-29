@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-
-int printstr(int num);
-int ft_matoi(char *str);
+#include "headers.h"
 
 
 int main(int a, char **v)

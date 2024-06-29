@@ -9,7 +9,7 @@
 /*   Updated: 2024/06/24 15:39:54 by amismail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+#include "headers.h"
 
 int	ft_matoi(char *str)
 {

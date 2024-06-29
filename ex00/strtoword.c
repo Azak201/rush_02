@@ -1,17 +1,4 @@
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdio.h>
-#define BUFFER_SIZE 1024
-
-typedef struct s_dict
-{
-    int key;
-    char *value;
-}t_dict;
-
-int	ft_atoi(char *str);
-void	ft_putstr(char *str);
-int load_dict(char str[BUFFER_SIZE]);
+#include "headers.h"
 
 
 
@@ -23,6 +10,11 @@ int printstr(int num)
     int size;
 
     if (load_dict(str) < 0)
+    {
+        write(1, "Dict Error\n",11);
+        return (-1);
+    }
+    if (spliter(str,dict) < 0)
     {
         write(1, "Dict Error\n",11);
         return (-1);
@@ -56,4 +48,14 @@ int load_dict(char str[BUFFER_SIZE])
         return (-1);
     }
     return (1); 
+}
+int spliter(char *str, t_dict **dict)
+{
+    int i;
+
+    i =0;
+    while (str[i] != 0)
+    {
+        
+    }
 }
