@@ -1,38 +1,61 @@
 #include <unistd.h>
 #include <fcntl.h>
-void	ft_putstr(char *str);
-typedef struct
+#include <stdio.h>
+#define BUFFER_SIZE 1024
+
+typedef struct s_dict
 {
     int key;
     char *value;
-}s_dict;
+}t_dict;
+
+void	ft_putstr(char *str);
+int load_dict(char str[BUFFER_SIZE]);
+
+
 
 int printstr(int num)
 {
-    s_dict kvp;
-    int file;
+    t_dict *dict;
+    t_dict kvp;
+    char str[BUFFER_SIZE];
     char c;
     int size;
 
-    kvp.key = num;
-    size = 0;
-    file = open("data/numbers.dict",O_RDWR);
-    if (file < 0)
+    if (load_dict(str) < 0)
     {
         write(1, "Dict Error\n",11);
         return (-1);
     }
 
-    read(file, ,1);
+   
     /*while ( c != '\n'||c != 0 )
     {
         kvp.value[size] = c;
         read(file, kvp.value,1);
         size ++;
     }*/
-    kvp.value[100]=0;
-    ft_putstr(kvp.value);
+    //ft_putstr(kvp.value);
     
-    close(file);
+    
     return (1);
+}
+
+int load_dict(char str[BUFFER_SIZE])
+{
+     int file;
+     int file_size;
+
+     file = open("data/numbers.dict",O_RDWR);
+     if (file < 0)
+    {
+        write(1, "Dict Error\n",11);
+        return (-1);
+    }
+    file_size = read(file,str, BUFFER_SIZE);
+    
+    
+    ft_putstr(str);
+
+    return (1); 
 }
